@@ -27,12 +27,11 @@
                 margin-top: 10px;
             }
         }
-    <style>
-    .btn-success {
-        background-color: orange;
-        border-color: orange;
-    }
-</style>
+        .btn-success {
+            background-color: orange;
+            border-color: orange;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -64,9 +63,6 @@
             var text = encodeURIComponent('Olá! Aqui é da JR Telecom 💙');
             var url = 'https://api.whatsapp.com/send?phone=55' + phoneNumber + '&text=' + text;
             window.open(url);
-            setTimeout(function(){
-                window.close();
-            }, 2000); // altere aqui o número de segundos que a janela deve permanecer aberta
         });
     </script>
 </body>
