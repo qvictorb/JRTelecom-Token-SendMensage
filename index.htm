@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Iniciar conversa no WhatsApp</title>
+    <link rel="shortcut icon" type="image/png" href="whatsapp-icon.png"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('//192.168.0.23/Help/WhatsApp/walpaper.png');
+            background-size: cover;
+        }
+        #whatsapp-icon {
+            width: 50px;
+            height: 50px;
+            background-image: url('whatsapp-icon.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin-right: 10px;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><span id="whatsapp-icon"></span>Iniciar conversa no WhatsApp</h5>
+                        <form action="https://api.whatsapp.com/send" method="get">
+                            <div class="form-group">
+                                <label for="phone-number">Número do telefone (com DDD):</label>
+                                <input type="text" class="form-control" id="phone-number" name="phone" required>
+                            </div>
+                            <div class="form-group text-center">
+                                <button type="submit" class="btn btn-success">Iniciar conversa</button>
+                            </div>
+                            <label for="phone-number">Developed Antonio Victor</label>
+                            <div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelector('form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            var phoneNumber = document.querySelector('#phone-number').value.replace(/[^\d]/g, '');
+            var text = encodeURIComponent('Olá! Aqui é da JR Telecom 💙');
+            var url = 'https://api.whatsapp.com/send?phone=55' + phoneNumber + '&text=' + text;
+            window.open(url);
+            setTimeout(function(){
+                window.close();
+            }, 2000); // altere aqui o número de segundos que a janela deve permanecer aberta
+        });
+    </script>
+</body>
+</html>
