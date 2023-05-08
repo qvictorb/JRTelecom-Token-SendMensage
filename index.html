@@ -55,7 +55,7 @@
     <script>
         document.querySelector('form').addEventListener('submit', function (event) {
             event.preventDefault();
-            var phoneNumber = document.querySelector('#phone-number').value.replace(/[^\d]/g, '');
+            var phoneNumber = formatPhoneNumber(document.querySelector('#phone-number').value);
             var text = encodeURIComponent('Olá! Aqui é da JR Telecom 💙');
             var url = 'https://api.whatsapp.com/send?phone=55' + phoneNumber + '&text=' + text;
             window.open(url);
