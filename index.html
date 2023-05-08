@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
         body {
-            background-image: url('JRTelecom-Token-SendMensage/walpaper.png');
+            background-image: url('JRTelecom-Token-SendWhatsApp/walpaper.png');
             background-size: cover;
         }
         #whatsapp-icon {
@@ -55,7 +55,7 @@
     <script>
         document.querySelector('form').addEventListener('submit', function (event) {
             event.preventDefault();
-            var phoneNumber = formatPhoneNumber(document.querySelector('#phone-number').value);
+            var phoneNumber = document.querySelector('#phone-number').value.replace(/[^\d]/g, '');
             var text = encodeURIComponent('Olá! Aqui é da JR Telecom 💙');
             var url = 'https://api.whatsapp.com/send?phone=55' + phoneNumber + '&text=' + text;
             window.open(url);
